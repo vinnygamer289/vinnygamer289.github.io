@@ -1,0 +1,16 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap');
+        body { font-family: Open Sans, sans-serif; margin: 0; padding: 0; background-color: #fff; color: #333; }
+        header { text-align: center; background-color: #f8f9fa; color: #222; padding: 20px; border-bottom: 2px solid #ddd; }
+        header img { width: 100%; max-height: 300px; object-fit: cover; border-radius: 10px; }
+        .download-btn {display:flex;align-items:center;justify-content:center;width:250px;margin:20px auto;padding:15px;background:#007bff;color:white;text-align:center;text-decoration:none;font-weight:bold;border-radius:5px;box-shadow:0 4px 6px rgba(0,0,0,0.1);gap:10px;}  
+         .verified-icon {width:20px;height:20px;}
+        .download-btn:hover { background: #0056b3; }
+        .container { max-width: 800px; margin: 20px auto; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); }
+        h2 { border-bottom: 2px solid #eee; padding-: ;bottom: 5px; color: #00000; margin-top: 20px; }
+        ul { padding-left: 20px; }
+        footer { text-align: center; padding: 15px; background: #f8f9fa; color: #555; border-top: 2px solid #ddd; margin-top: 20px; }
+       .footer {width:100%;background:rgba(0,0,0,0.5);padding:15px 0;text-align:center;color:white;font-size:14px;position:relative;margin-top:20px;}  
+      .footer a {color:white;text-decoration:none;margin:0 10px;transition:color 0.3s;}  
+      .footer a:hover {color:#ffcc00;}
+      a {color: #007bff;text-decoration: none;}
