@@ -3,21 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2779017741360975"
-     crossorigin="anonymous"></script>
-   <script src="https://www.google.com/recaptcha/api.js?render=6LdzHuYqAAAAAHK9KcousBcrmexK9KWgQSqQ8yBD"></script>
-    <script async custom-element="amp-auto-ads"
-        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
-</script>
-   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LXPP8T2H6C"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-LXPP8T2H6C');
-</script
     <title>Waiting for download...</title>
     <style>
         body {
@@ -41,18 +26,9 @@
             width: 80%;
             max-width: 400px;
         }
-        h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-        p {
-            font-size: 18px;
-        }
-        #countdown {
-            font-weight: bold;
-            font-size: 20px;
-            color: yellow;
-        }
+        h1 { font-size: 24px; margin-bottom: 10px; }
+        p { font-size: 18px; }
+        #countdown { font-weight: bold; font-size: 20px; color: yellow; }
         .loader {
             border: 5px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
@@ -62,11 +38,10 @@
             animation: spin 1s linear infinite;
             margin: 20px auto;
         }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        a {color: #007bff;text-decoration: none;}
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .download-list { margin-top: 20px; }
+        .download-btn { display: block; margin: 5px 0; padding: 10px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; }
+        .download-btn:hover { background: #0056b3; }
     </style>
 </head>
 <body>
@@ -74,19 +49,49 @@
         <h1 id="title">Checking...</h1>
         <p>Please wait <span id="countdown">15</span> seconds...</p>
         <div class="loader"></div>
+        <div id="download-container" class="download-list"></div>
     </div>
 
     <script>
-        const downloadList = [
-            { id: "AZZRkD8V49Z5", title: "Vinny's Vein Miner & Tree Capitator", link: "https://www.mediafire.com/file/0aj7vrdhfb73vq3/Vinny%2527s_Vein_Miner_Tree_Capitator_v1.0.mcpack.zip/file" },
-            { id: "EfgIphCelZ4q", title: "Newb X Legacy", link: "https://www.mediafire.com/file/bjskb8vurn8lcrw/NewbXLegac.mcpack.zip/file" },
-            { id: "eOyATkwwuixA", title: "Bare Bones", link: "https://www.mediafire.com/file/xhophfjc2y2icpc/Bare_Bones_Texture_Pack.mcpack.zip/file" }
-        ];
+      const downloadList = [
+    { 
+        id: "AZZRkD8V49Z5", 
+        title: "Vinny's Vein Miner & Tree Capitator", 
+        links: [
+            { title: "Vinny's Vein Miner & Tree Capitator", url: "https://www.mediafire.com/file/0aj7vrdhfb73vq3/Vinny%2527s_Vein_Miner_Tree_Capitator_v1.0.mcpack.zip/file" }
+        ]
+    },
+    { 
+        id: "EfgIphCelZ4q", 
+        title: "Newb X Legacy", 
+        links: [
+            { title: "Newb X Legacy", url: "https://www.mediafire.com/file/bjskb8vurn8lcrw/NewbXLegac.mcpack.zip/file" }
+        ]
+    },
+    { 
+        id: "eOyATkwwuixA", 
+        title: "Bare Bones", 
+        links: [
+            { title: "Bare Bones Texture Pack", url: "https://www.mediafire.com/file/xhophfjc2y2icpc/Bare_Bones_Texture_Pack.mcpack.zip/file" }
+        ]
+    },
+    {
+        id: "KmDFBPMzDjsn",
+        title: "Minecraft PE FREE",
+        links: [
+            { title: "Minecraft PE 1.21.62 APK", url: "https://www.mediafire.com/file/nn7p8fghl4qsy1b/minecraft-1-21-62.apk/file" },
+            { title: "Minecraft PE 1.21.61 IPA", url: "https://www.mediafire.com/file/skw1djyulz200q3/Minecraft-v1.21.61.ipa/file" },
+            { title: "Minecraft PE 1.21.70 Beta APK", url: "https://www.mediafire.com/file/syie2gg47yfl5d8/minecraft-1-21-70-25.apk/file" },
+            { title: "Minecraft Patch 1.21.51 APK", url: "https://www.mediafire.com/file/yjmi23vy1tdomw2/MCPE-Patched-1.21.51.apk/file" }
+        ]
+    }
+];
 
         const urlParams = new URLSearchParams(window.location.search);
         const id = urlParams.get("id");
 
         const file = downloadList.find(item => item.id === id);
+
         if (file) {
             document.getElementById("title").textContent = "Preparing download: " + file.title;
             let countdown = 15;
@@ -95,9 +100,18 @@
                 countdown--;
                 document.getElementById("countdown").textContent = countdown;
                 if (countdown <= 0) {
-  clearInterval(interval);
-  document.body.innerHTML = `<h1>Your download is ready!</h1><a href="${file.link}" class="download-btn">Download Now</a>`;
-}
+                    clearInterval(interval);
+                    document.getElementById("title").textContent = "Your downloads are ready!";
+                    document.querySelector(".loader").style.display = "none";
+
+                    let downloadHTML = "";
+file.links.forEach(link => {
+  downloadHTML += `<a href="${link.url}" class="download-btn">${link.title}</a>`;
+});
+document.getElementById("download-container").innerHTML = downloadHTML;
+
+                    document.getElementById("download-container").innerHTML = downloadHTML;
+                }
             }, 1000);
         } else {
             document.getElementById("title").textContent = "Invalid ID!";
