@@ -1,1 +1,30 @@
-gsap.from(".profile img",{duration:1,y:-50,opacity:0,ease:"bounce"});gsap.from(".addon",{duration:1,opacity:0,y:20,stagger:0.2,ease:"power2.out"});document.querySelector('.share-btn').addEventListener('click',function(){navigator.clipboard.writeText(window.location.href).then(function(){alert('Link has been copied to clipboard!');}).catch(function(err){console.error('Cannot copy link: ',err);alert('Link cannot be copied. Please try again.');});});document.addEventListener("contextmenu",function(e){if(e.target.tagName==="A"){e.preventDefault();}});document.addEventListener("DOMContentLoaded",function(){document.addEventListener("mousedown",function(e){if(e.target.tagName==="A"&&(e.button===1||e.button===2)){e.preventDefault();}});});
+document.querySelector('.share-btn').addEventListener('click', function () {
+    navigator.clipboard.writeText(window.location.href).then(function () {
+        alert('Link has been copied to clipboard!');
+    }).catch(function (err) {
+        console.error('Cannot copy link: ', err);
+        alert('Link cannot be copied. Please try again.');
+    });
+});
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("contextmenu", function (event) {
+            event.preventDefault();
+        });
+        let timeout;
+        link.addEventListener("touchstart", function (event) {
+            timeout = setTimeout(function () {
+                event.preventDefault();
+            }, 500);
+        });
+
+        link.addEventListener("touchend", function () {
+            clearTimeout(timeout);
+        });
+        link.addEventListener("mousedown", function (event) {
+            if (event.button === 2) {
+                event.preventDefault();
+            }
+        });
+    });
+});
