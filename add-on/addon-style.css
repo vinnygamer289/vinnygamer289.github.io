@@ -21,3 +21,5 @@
         .slider img:hover { transform: scale(1.05); transition: transform 0.3s ease; }
         .scroll-hint { position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%); font-size: 14px; color: #666; user-select: none; }
         img { pointer-events: none; }
+        #backToTop {position: fixed;bottom: 65px;right: 20px;display: none;padding: 10px 15px;background: #333;color: white;border: none;border-radius: 5px;cursor: pointer;}
+        #backToTop:hover {background: #555;}
