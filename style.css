@@ -19,3 +19,4 @@
       hr{border:none;height:2px;background-color:#0000;width:80%;margin:20px auto;box-shadow:0 0 5px rgba(0,0,0,0.2);}
       p {margin: 0 auto;width: 80%;}
       img {pointer-events: none;}
+      #google-sign-in{background-color:#4285F4;color:white;padding:10px 20px;border:none;border-radius:5px;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background-color 0.3s ease;}#google-sign-in:hover{background-color:#357ae8;}#google-sign-in:active{background-color:#3367d6;}#google-sign-in img{width:20px;margin-right:10px;}
