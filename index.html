@@ -87,6 +87,45 @@
   <img src="icons/minecraft.png" alt=" Icon">
   Minecraft PE Free
 </a>
+<button id="login-google">Đăng nhập với Google</button>
+<button id="logout">Đăng xuất</button>
+<p id="user-info"></p>
+
+<script>
+  // Cấu hình Firebase
+  const firebaseConfig = {
+    apiKey: "AIzaSyB9H-aFKbZpLlG44T9nFvt3k5oU8P-o4nc",
+    authDomain: "vinny-gamer-admin.firebaseapp.com",
+    projectId: "vinny-gamer-admin",
+    storageBucket: "vinny-gamer-admin.firebasestorage.app",
+    messagingSenderId: "96227634471",
+    appId: "1:96227634471:web:5046b7070c242dd82f8d02",
+    measurementId: "G-739RH0P8P2"
+  };
+
+  // Khởi tạo Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+
+  // Xử lý đăng nhập bằng Google
+  document.getElementById("login-google").addEventListener("click", () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider)
+      .then((result) => {
+        document.getElementById("user-info").innerHTML = `Xin chào, ${result.user.displayName}`;
+      })
+      .catch((error) => {
+        console.error("Lỗi đăng nhập:", error);
+      });
+  });
+
+  // Xử lý đăng xuất
+  document.getElementById("logout").addEventListener("click", () => {
+    auth.signOut().then(() => {
+      document.getElementById("user-info").innerHTML = "Bạn đã đăng xuất.";
+    });
+  });
+</script>
 <footer class="footer">
     <div class="footer-content">
         <p>&copy; 2025 - Vinny gamer. All Rights Reserved..</p>
